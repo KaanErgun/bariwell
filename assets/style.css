@@ -71,3 +71,18 @@
 .bariwell-modal-close:hover {
     background: #005f8d;
 }
+
+.bariwell-modal-content .bariwell-link {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #0073aa;
+    transition: color 0.3s ease-in-out;
+}
+
+.bariwell-modal-content .bariwell-link:hover {
+    text-decoration: underline;
+    color: #005f8d;
+}

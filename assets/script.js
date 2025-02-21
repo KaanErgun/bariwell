@@ -14,8 +14,21 @@ document.addEventListener("DOMContentLoaded", function () {
         let height = parseFloat(document.getElementById("height").value) / 100;
         let weight = parseFloat(document.getElementById("weight").value);
         let bmi = weight / (height * height);
-        let message = bmi >= 40 ? "Bariatrik operasyon için uygun bir aday olabilirsiniz." : "Bariatrik operasyon için uygun değilsiniz.";
-        let resultClass = bmi >= 40 ? "success" : "error";
+        let message = "";
+        let resultClass = "";
+
+        const surgeryLink = "https://kaanergun.com"; // Admin panelinden gelen link buraya eklenebilir
+
+        if (bmi >= 40) {
+            message = "Bariatrik operasyon için uygun bir aday olabilirsiniz.";
+            resultClass = "success";
+        } else if (bmi >= 35 && bmi < 40) {
+            message = "Bariatrik operasyon için değerlendirilebilirsiniz.";
+            resultClass = "warning";
+        } else {
+            message = "Bariatrik operasyon için uygun değilsiniz.";
+            resultClass = "error";
+        }
 
         // Modal içeriğini oluştur
         modal.innerHTML = `
@@ -23,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h2>BMI Sonucu</h2>
                 <div class="bariwell-result ${resultClass}">BMI Değeriniz: ${bmi.toFixed(2)}</div>
                 <p>${message}</p>
+                <p><a href="${surgeryLink}" target="_blank" class="bariwell-link">Daha fazla bilgi için tıklayın.</a></p>
                 <button id="bariwell-modal-close" class="bariwell-modal-close">Kapat</button>
             </div>
         `;
