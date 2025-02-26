@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let message = "";
         let resultClass = "";
 
-        const surgeryLink = "https://kaanergun.com"; // Admin panelinden gelen link buraya eklenebilir
+        const surgeryLink = bariwellOptions.surgeryLink; // PHP'den gelen gerçek linki kullan
 
         if (bmi >= 40) {
             message = "Bariatrik operasyon için uygun bir aday olabilirsiniz.";

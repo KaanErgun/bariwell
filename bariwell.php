@@ -21,6 +21,17 @@ function bariwell_enqueue_assets() {
 }
 add_action('wp_enqueue_scripts', 'bariwell_enqueue_assets');
 
+add_action('wp_footer', function() {
+    $surgery_link = get_option('bariwell_surgery_link', '');
+    ?>
+    <script>
+        var bariwellOptions = {
+            surgeryLink: "<?php echo esc_js($surgery_link); ?>"
+        };
+    </script>
+    <?php
+});
+
 
 // Diğer dosyaları dahil et
 require_once BARIWELL_PATH . 'includes/settings.php';
